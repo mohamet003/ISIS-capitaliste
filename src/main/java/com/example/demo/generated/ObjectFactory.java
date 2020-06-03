@@ -6,7 +6,7 @@
 //
 
 
-package generated;
+package com.example.demo.generated;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
