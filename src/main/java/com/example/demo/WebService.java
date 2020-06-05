@@ -1,8 +1,10 @@
 package com.example.demo;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBException;
@@ -19,7 +21,10 @@ public class WebService
     @GET
     @Path("world")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response getWorld() throws JAXBException, FileNotFoundException {
-        return Response.ok(service.getWorld("Mohamet")).build();
+    public Response getWorld(@Context HttpServletRequest request) throws JAXBException, FileNotFoundException {
+        String username = request.getHeader("X-user");
+        System.out.println(request);
+        System.out.println(username);
+        return Response.ok(service.getWorld(username)).build();
     }
 }
