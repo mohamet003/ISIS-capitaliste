@@ -79,7 +79,6 @@ public class Service
             // soustraire de l'argent du joueur le cout de la quantité
             // achetée et mettre à jour la quantité de product
             double newPrice = product.getCout() * ((1 - Math.pow(product.getCroissance(), qtchange)) / (1 - product.getCroissance()));
-
             // mise à jour qte
             product.setQuantite(newproduct.getQuantite());
             // mise à jour argent
