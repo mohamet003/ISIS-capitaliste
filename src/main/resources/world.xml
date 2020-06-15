@@ -33,6 +33,7 @@
         </pallier>
       </palliers>
     </product>
+
     <product>
       <id>3</id>
       <name>string</name>
@@ -57,7 +58,9 @@
         </pallier>
       </palliers>
     </product>
+
   </products>
+
   <allunlocks>
     <!--Zero or more repetitions:-->
     <pallier>

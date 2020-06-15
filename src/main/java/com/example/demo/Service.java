@@ -28,7 +28,6 @@ public class Service
             World world = (World) un.unmarshal(input);
             return world;
         }
-
     }
 
     public void saveWorldToXml(World world, String username) throws FileNotFoundException, JAXBException {
@@ -57,8 +56,46 @@ public class Service
 
 
     public World majScore(World world){
-        return world;
+        List<ProductType> products = world.getProducts().getProduct();
+        // calcule du temps écoulé entre la derniere mise à jour du produit et maintenant
+        long tempsEcoule = System.currentTimeMillis() -  world.getLastupdate();
 
+        for (ProductType product : products){
+            long test = tempsEcoule - product.getVitesse();
+
+            // pas assez de temps écoulé pour la production d'un produit
+            if (tempsEcoule < 0 ){
+                //maj du temps de production restant au cas ou la production du produit n'est pas terminée
+                product.setTimeleft(product.getVitesse() - (tempsEcoule % product.getVitesse()));
+            }else{
+
+                int nbrProduit_Produit = 0;
+                if (product.isManagerUnlocked()){
+                    // calcul du nombre de produit
+                    nbrProduit_Produit = (int) (tempsEcoule/product.getVitesse());
+                    //maj du temps de production restant au cas ou la production du produit n'est pas terminée
+                    product.setTimeleft(product.getVitesse() - (tempsEcoule % product.getVitesse()));
+                }else if (product.getTimeleft() > 0){
+                    nbrProduit_Produit = 1;
+                    product.setTimeleft(0);
+                }
+
+                // Maj de l'argent du monde
+                double argentGagner = product.getRevenu()*nbrProduit_Produit;
+
+
+                // Bonus pour les anges
+                argentGagner += argentGagner * (world.getActiveangels() * world.getAngelbonus() / 100 );
+
+
+                // Maj de l'argent de l'argent du joueur
+                world.setMoney(world.getMoney() + argentGagner);
+                // Maj de l'argent du score du joueur
+                world.setScore(world.getScore() + argentGagner );
+            }
+        }
+
+        return world;
     }
 
 
@@ -105,6 +142,7 @@ public class Service
             return false;
         }
         // débloquer ce manager
+        manager.setUnlocked(true);
 
         // trouver le produit correspondant au manager
         ProductType product = findProductById(world, manager.getIdcible());
@@ -113,9 +151,10 @@ public class Service
         }
         // débloquer le manager de ce produit
         product.setManagerUnlocked(true);
-        // mise à jour argent
-        world.setMoney(world.getMoney() - manager.getSeuil());
+
         // soustraire de l'argent du joueur le cout du manager
+        world.setMoney(world.getMoney() - manager.getSeuil());
+
         // sauvegarder les changements au monde
         saveWorldToXml(world, username);
         return true;
