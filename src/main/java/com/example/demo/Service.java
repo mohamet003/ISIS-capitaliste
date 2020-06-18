@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.generated.PallierType;
 import com.example.demo.generated.ProductType;
+import com.example.demo.generated.TyperatioType;
 import com.example.demo.generated.World;
 
 import javax.xml.bind.JAXBContext;
@@ -181,6 +182,71 @@ public class Service
             }
         }
         return manager;
+    }
+
+
+    public void addPallier(ProductType product, PallierType pallierType) throws JAXBException, FileNotFoundException {
+        // on deverouille le pallier
+        pallierType.setUnlocked(true);
+
+        if (pallierType.getTyperatio() == TyperatioType.VITESSE){
+            //divise le temps de production par le ratio indiqué ;
+            int newVitesse= product.getVitesse() / (int)pallierType.getRatio();
+            product.setVitesse(newVitesse);
+        }
+        else{
+            // multiplie le revenu du produit par le ratio indiqué ;
+            double newRevenu = product.getRevenu() * pallierType.getRatio();
+            product.setRevenu(newRevenu);
+        }
+    }
+
+
+    //PUT /upgrade : permet au client de communiquer au serveur l’achat d’un Cash Upgrade en passant
+    //cet upgrade en paramètre sous la forme d’une entité de type « pallier »
+
+    public boolean upgrade(String username, PallierType upgrade) throws JAXBException, FileNotFoundException{
+        World world= getWorld(username);
+        if (!upgrade.isUnlocked() && world.getMoney() >= upgrade.getSeuil()){
+            if (upgrade.getIdcible() == 0 ){
+                List<ProductType> products = world.getProducts().getProduct();
+                for (ProductType product :products){
+                    addPallier( product,upgrade );
+                }
+            }
+            else{
+                ProductType product = findProductById(world,upgrade.getIdcible());
+                addPallier( product , upgrade );
+            }
+        }else{
+            return false;
+        }
+        return true;
+    }
+
+    public void deleteWorld(String username) throws JAXBException, FileNotFoundException {
+        World world=getWorld(username);
+        double newAnges = Math.round(150 * Math.sqrt(world.getScore()/ Math.pow(10, 15))) - world.getTotalangels();
+        JAXBContext cont = JAXBContext.newInstance(World.class);
+        Unmarshaller u = cont.createUnmarshaller();
+        InputStream input = getClass().getClassLoader().getResourceAsStream("world.xml");
+        World newWord = (World) u.unmarshal(input);
+        newWord.setActiveangels(world.getActiveangels() + newAnges);
+        newWord.setTotalangels(world.getTotalangels() + newAnges);
+        newWord.setScore(world.getScore());
+        saveWorldToXml(newWord, username);
+    }
+
+
+
+    public void angelUpgrade(String username, PallierType angel) throws JAXBException, FileNotFoundException{
+        World world= getWorld(username);
+        if(angel.getTyperatio()==TyperatioType.ANGE){
+            world.setAngelbonus((int) (world.getAngelbonus() + angel.getRatio()));
+        } else{
+            upgrade( username, angel );
+        }
+        world.setActiveangels(world.getActiveangels()  -   (int) angel.getSeuil());
     }
 
 }
