@@ -57,6 +57,7 @@ public class Service
 
 
     public World majScore(World world){
+        System.out.println("majScore");
         List<ProductType> products = world.getProducts().getProduct();
         // calcule du temps écoulé entre la derniere mise à jour du produit et maintenant
         long tempsEcoule = System.currentTimeMillis() -  world.getLastupdate();
@@ -66,14 +67,18 @@ public class Service
 
             // pas assez de temps écoulé pour la production d'un produit
             if (tempsEcoule < 0 ){
+                System.out.println("pas assez de temps écoulé pour la production d'un produit");
                 //maj du temps de production restant au cas ou la production du produit n'est pas terminée
                 product.setTimeleft(product.getVitesse() - (tempsEcoule % product.getVitesse()));
             }else{
 
                 int nbrProduit_Produit = 0;
                 if (product.isManagerUnlocked()){
+                    System.out.println("isManagerUnlocked = true ");
                     // calcul du nombre de produit
                     nbrProduit_Produit = (int) (tempsEcoule/product.getVitesse());
+
+                    System.out.println("Nombre de produit produit  "+nbrProduit_Produit);
                     //maj du temps de production restant au cas ou la production du produit n'est pas terminée
                     product.setTimeleft(product.getVitesse() - (tempsEcoule % product.getVitesse()));
                 }else if (product.getTimeleft() > 0){
@@ -161,7 +166,7 @@ public class Service
         return true;
     }
 
-    private ProductType findProductById(World world, int id) {
+    public ProductType findProductById(World world, int id) {
         ProductType produit = null;
         List<ProductType> products = world.getProducts().getProduct();
         for (ProductType p : products) {
@@ -183,6 +188,7 @@ public class Service
         }
         return manager;
     }
+
 
 
     public void addPallier(ProductType product, PallierType pallierType) throws JAXBException, FileNotFoundException {

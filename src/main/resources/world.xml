@@ -12,7 +12,7 @@
             <id>1</id>
             <name>Trotinette</name>
             <logo>trotinette.jpeg</logo>
-            <cout>1</cout>
+            <cout>30</cout>
             <croissance>1.07</croissance>
             <revenu>1</revenu>
             <vitesse>500</vitesse>
