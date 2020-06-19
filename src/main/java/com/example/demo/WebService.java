@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
 
-@Path("api")
+@Path("generic")
 public class WebService
 {
 

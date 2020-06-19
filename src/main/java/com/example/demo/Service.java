@@ -247,7 +247,7 @@ public class Service
 
     public void angelUpgrade(String username, PallierType angel) throws JAXBException, FileNotFoundException{
         World world= getWorld(username);
-        if(angel.getTyperatio()==TyperatioType.ANGE){
+        if(angel.getTyperatio() == TyperatioType.ANGE){
             world.setAngelbonus((int) (world.getAngelbonus() + angel.getRatio()));
         } else{
             upgrade( username, angel );
