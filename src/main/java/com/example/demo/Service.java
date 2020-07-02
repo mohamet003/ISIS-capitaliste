@@ -123,15 +123,30 @@ public class Service
             // achetée et mettre à jour la quantité de product
             double newPrice = product.getCout() * ((1 - Math.pow(product.getCroissance(), qtchange)) / (1 - product.getCroissance()));
             // mise à jour qte
-            product.setQuantite(newproduct.getQuantite());
-            // mise à jour argent
-            world.setMoney(world.getMoney() - newPrice);
+
+            if (world.getMoney()>= newPrice){
+                product.setQuantite(newproduct.getQuantite());
+                // mise à jour argent
+                world.setMoney(world.getMoney() - newPrice);
+
+            }else{
+                return null;
+            }
+
         } else {
             // initialiser product.timeleft à product.vitesse
             // pour lancer la production
             product.setTimeleft(product.getVitesse());
         }
-        // sauvegarder les changements du monde
+
+        List<PallierType> palliers=(List<PallierType>) product.getPalliers().getPallier();
+        for (PallierType palier: palliers){
+            if (palier.isUnlocked()==false && product.getQuantite()>=palier.getSeuil()){
+                addPallier(product,palier);
+            }
+        }
+
+        // sauvegarder
         saveWorldToXml(world,username);
         return true;
     }

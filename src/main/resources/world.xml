@@ -25,8 +25,8 @@
                     <logo>trotinette.jpg</logo>
                     <seuil>10</seuil>
                     <idcible>1</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -34,8 +34,8 @@
                     <logo>trotinette.jpg</logo>
                     <seuil>30</seuil>
                     <idcible>1</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -43,8 +43,8 @@
                     <logo>trotinette.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>1</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -52,8 +52,8 @@
                     <logo>trotinette.jpg</logo>
                     <seuil>80</seuil>
                     <idcible>1</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -61,8 +61,8 @@
                     <logo>trotinette.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>1</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>5</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
@@ -70,7 +70,7 @@
 
         <product>
             <id>2</id>
-            <name>Sccoter électrique</name>
+            <name>Scooter électrique</name>
             <logo>sccoter_electrique.jpeg</logo>
             <cout>50</cout>
             <croissance>1.07</croissance>
@@ -85,8 +85,8 @@
                     <logo>sccoter_electrique.jpeg</logo>
                     <seuil>10</seuil>
                     <idcible>2</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -94,8 +94,8 @@
                     <logo>sccoter_electrique.jpeg</logo>
                     <seuil>25</seuil>
                     <idcible>2</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -104,7 +104,7 @@
                     <seuil>50</seuil>
                     <idcible>2</idcible>
                     <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <typeratio>3</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -112,8 +112,8 @@
                     <logo>sccoter_electrique.jpeg</logo>
                     <seuil>75</seuil>
                     <idcible>2</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -121,8 +121,8 @@
                     <logo>sccoter_electrique.jpeg</logo>
                     <seuil>100</seuil>
                     <idcible>2</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>5</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
@@ -145,8 +145,8 @@
                     <logo>vespa.jpeg</logo>
                     <seuil>10</seuil>
                     <idcible>3</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -154,8 +154,8 @@
                     <logo>vespa.jpeg</logo>
                     <seuil>25</seuil>
                     <idcible>3</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -163,8 +163,8 @@
                     <logo>vespa.jpeg</logo>
                     <seuil>50</seuil>
                     <idcible>3</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -172,8 +172,8 @@
                     <logo>vespa.jpeg</logo>
                     <seuil>75</seuil>
                     <idcible>3</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -181,8 +181,8 @@
                     <logo>vespa.jpeg</logo>
                     <seuil>100</seuil>
                     <idcible>3</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>5</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
@@ -204,8 +204,8 @@
                     <logo>kymco.jpg</logo>
                     <seuil>10</seuil>
                     <idcible>4</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -213,8 +213,8 @@
                     <logo>kymco.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>4</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -222,8 +222,8 @@
                     <logo>kymco.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>4</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -231,8 +231,8 @@
                     <logo>kymco.jpg</logo>
                     <seuil>75</seuil>
                     <idcible>4</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -240,8 +240,8 @@
                     <logo>kymco.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>4</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>5</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
@@ -263,8 +263,8 @@
                     <logo>griffon.jpg</logo>
                     <seuil>10</seuil>
                     <idcible>5</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -272,8 +272,8 @@
                     <logo>griffon.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>5</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -281,8 +281,8 @@
                     <logo>griffon.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>5</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -290,8 +290,8 @@
                     <logo>griffon.jpg</logo>
                     <seuil>75</seuil>
                     <idcible>5</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>5</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -299,8 +299,8 @@
                     <logo>griffon.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>5</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>5</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
@@ -323,8 +323,8 @@
                     <logo>citroen_ada.png</logo>
                     <seuil>10</seuil>
                     <idcible>6</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -332,8 +332,8 @@
                     <logo>citroen_ada.png</logo>
                     <seuil>25</seuil>
                     <idcible>6</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -341,8 +341,8 @@
                     <logo>citroen_ada.png</logo>
                     <seuil>50</seuil>
                     <idcible>6</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -350,8 +350,8 @@
                     <logo>citroen_ada.png</logo>
                     <seuil>75</seuil>
                     <idcible>6</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -359,8 +359,8 @@
                     <logo>citroen_ada.png</logo>
                     <seuil>100</seuil>
                     <idcible>6</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>5</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
@@ -383,8 +383,8 @@
                     <logo>citroenc5aircross.jpg</logo>
                     <seuil>10</seuil>
                     <idcible>6</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>2</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -392,8 +392,8 @@
                     <logo>citroenc5aircross.jpg</logo>
                     <seuil>25</seuil>
                     <idcible>7</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -401,8 +401,8 @@
                     <logo>citroenc5aircross.jpg</logo>
                     <seuil>50</seuil>
                     <idcible>7</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>3</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -410,8 +410,8 @@
                     <logo>citroenc5aircross.jpg</logo>
                     <seuil>75</seuil>
                     <idcible>7</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>GAIN</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>gain</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -419,8 +419,8 @@
                     <logo>citroenc5aircross.jpg</logo>
                     <seuil>100</seuil>
                     <idcible>7</idcible>
-                    <ratio>1.2</ratio>
-                    <typeratio>VITESSE</typeratio>
+                    <ratio>4</ratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
             </palliers>
@@ -434,8 +434,8 @@
             <logo>all.png</logo>
             <seuil>10</seuil>
             <idcible>0</idcible>
-            <ratio>1.2</ratio>
-            <typeratio>VITESSE</typeratio>
+            <ratio>2</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -443,8 +443,8 @@
             <logo>all.png</logo>
             <seuil>25</seuil>
             <idcible>0</idcible>
-            <ratio>1.2</ratio>
-            <typeratio>GAIN</typeratio>
+            <ratio>3</ratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -452,8 +452,8 @@
             <logo>all.png</logo>
             <seuil>50</seuil>
             <idcible>0</idcible>
-            <ratio>1.2</ratio>
-            <typeratio>VITESSE</typeratio>
+            <ratio>4</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -461,8 +461,8 @@
             <logo>all.png</logo>
             <seuil>80</seuil>
             <idcible>0</idcible>
-            <ratio>1.2</ratio>
-            <typeratio>GAIN</typeratio>
+            <ratio>4</ratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -470,8 +470,8 @@
             <logo>all.png</logo>
             <seuil>100</seuil>
             <idcible>0</idcible>
-            <ratio>1.2</ratio>
-            <typeratio>VITESSE</typeratio>
+            <ratio>5</ratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </allunlocks>
@@ -483,7 +483,7 @@
             <seuil>8000</seuil>
             <idcible>1</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -492,7 +492,7 @@
             <seuil>20000</seuil>
             <idcible>2</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -501,7 +501,7 @@
             <seuil>40000</seuil>
             <idcible>3</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -510,7 +510,7 @@
             <seuil>70000</seuil>
             <idcible>4</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -519,7 +519,7 @@
             <seuil>100000</seuil>
             <idcible>5</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -528,7 +528,7 @@
             <seuil>150000</seuil>
             <idcible>6</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
 
@@ -538,7 +538,7 @@
             <seuil>150000</seuil>
             <idcible>6</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -547,7 +547,7 @@
             <seuil>170000</seuil>
             <idcible>0</idcible>
             <ratio>10</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -556,7 +556,7 @@
             <seuil>300000</seuil>
             <idcible>1</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -565,7 +565,7 @@
             <seuil>500000</seuil>
             <idcible>2</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -574,7 +574,7 @@
             <seuil>700000</seuil>
             <idcible>3</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -583,7 +583,7 @@
             <seuil>1000000</seuil>
             <idcible>4</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -592,7 +592,7 @@
             <seuil>1250000</seuil>
             <idcible>5</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -601,7 +601,7 @@
             <seuil>1600000</seuil>
             <idcible>6</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
 
@@ -611,7 +611,7 @@
             <seuil>1600000</seuil>
             <idcible>7</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
 
@@ -621,7 +621,7 @@
             <seuil>10000000</seuil>
             <idcible>0</idcible>
             <ratio>50</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
 
@@ -631,7 +631,7 @@
             <seuil>20000000</seuil>
             <idcible>0</idcible>
             <ratio>1.2</ratio>
-            <typeratio>VITESSE</typeratio>
+            <typeratio>vitesse</typeratio>
             <unlocked>false</unlocked>
         </pallier>
 
@@ -642,7 +642,7 @@
             <seuil>100000000</seuil>
             <idcible>1</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -651,7 +651,7 @@
             <seuil>200000000</seuil>
             <idcible>2</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -660,7 +660,7 @@
             <seuil>400000000</seuil>
             <idcible>3</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -669,7 +669,7 @@
             <seuil>600000000</seuil>
             <idcible>4</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -678,7 +678,7 @@
             <seuil>800000000</seuil>
             <idcible>5</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -687,7 +687,7 @@
             <seuil>900000000</seuil>
             <idcible>6</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
 
@@ -697,7 +697,7 @@
             <seuil>900000000</seuil>
             <idcible>6</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
 
@@ -707,7 +707,7 @@
             <seuil>1000000000</seuil>
             <idcible>0</idcible>
             <ratio>100</ratio>
-            <typeratio>GAIN</typeratio>
+            <typeratio>gain</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </upgrades>
@@ -798,7 +798,7 @@
         </pallier>
         <pallier>
             <name>Moussa</name>
-            <logo>moussa.jpg</logo>
+            <logo>moussa.png</logo>
             <seuil>250000</seuil>
             <idcible>6</idcible>
             <ratio>0.0</ratio>
