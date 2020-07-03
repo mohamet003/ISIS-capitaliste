@@ -104,7 +104,7 @@
                     <seuil>50</seuil>
                     <idcible>2</idcible>
                     <ratio>1.2</ratio>
-                    <typeratio>3</typeratio>
+                    <typeratio>vitesse</typeratio>
                     <unlocked>false</unlocked>
                 </pallier>
                 <pallier>
@@ -728,7 +728,7 @@
             <seuil>100000</seuil>
             <idcible>-1</idcible>
             <ratio>100</ratio>
-            <typeratio>ANGE</typeratio>
+            <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -737,7 +737,7 @@
             <seuil>500000</seuil>
             <idcible>-1</idcible>
             <ratio>1000</ratio>
-            <typeratio>ANGE</typeratio>
+            <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
         <pallier>
@@ -746,7 +746,7 @@
             <seuil>100000000</seuil>
             <idcible>-1</idcible>
             <ratio>10000</ratio>
-            <typeratio>ANGE</typeratio>
+            <typeratio>ange</typeratio>
             <unlocked>false</unlocked>
         </pallier>
     </angelupgrades>

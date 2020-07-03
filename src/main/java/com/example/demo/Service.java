@@ -38,13 +38,14 @@ public class Service
         return world;
     }
 
-    public void saveWorldToXml(World world, String username) throws FileNotFoundException, JAXBException {
-
+    public void saveWorldToXml(World world, String username) throws IOException, JAXBException {
+System.out.println("on  lecture for  modifs");
         String fileName = username + "-world.xml";
-        OutputStream output = new FileOutputStream(fileName);
         JAXBContext cont = JAXBContext.newInstance(World.class);
         Marshaller ma = cont.createMarshaller();
+        FileOutputStream output = new FileOutputStream(fileName);
         ma.marshal(world, output);
+        output.close();
 
     }
 
@@ -70,10 +71,8 @@ public class Service
         List<ProductType> products = world.getProducts().getProduct();
         // calcule du temps écoulé entre la derniere mise à jour du produit et maintenant
         long tempsEcoule = System.currentTimeMillis() -  world.getLastupdate();
-
         for (ProductType product : products){
             long test = tempsEcoule - product.getTimeleft();
-
             // pas assez de temps écoulé pour la production d'un produit
             if (tempsEcoule < 0 ){
                 System.out.println("pas assez de temps écoulé pour la production d'un produit");
@@ -84,9 +83,7 @@ public class Service
                 if (product.isManagerUnlocked()){
                     System.out.println("isManagerUnlocked = true ");
                     // calcul du nombre de produit
-
                     nbrProduit_Produit = (int) ((tempsEcoule - product.getTimeleft() +  product.getVitesse()) / product.getVitesse());
-
                     System.out.println("Nombre de produit produit  "+nbrProduit_Produit+" avec une vetesse de "+product.getVitesse());
                     //maj du temps de production restant au cas ou la production du produit n'est pas terminée
                     product.setTimeleft(product.getVitesse() - (tempsEcoule % product.getVitesse()));
@@ -218,10 +215,12 @@ public class Service
             product.setVitesse(newVitesse);
         }
         else{
+            System.out.println("New Mise à jour Palier");
             // multiplie le revenu du produit par le ratio indiqué ;
             double newRevenu = product.getRevenu() * pallierType.getRatio();
             product.setRevenu(newRevenu);
         }
+
     }
 
 
@@ -229,21 +228,28 @@ public class Service
     //cet upgrade en paramètre sous la forme d’une entité de type « pallier »
 
     public boolean upgrade(String username, PallierType upgrade) throws JAXBException, IOException {
+        System.out.println("UPGADE DD");
         World world= getWorld(username);
         if (!upgrade.isUnlocked() && world.getMoney() >= upgrade.getSeuil()){
             if (upgrade.getIdcible() == 0 ){
                 List<ProductType> products = world.getProducts().getProduct();
                 for (ProductType product :products){
+                    world.setMoney(world.getMoney() - upgrade.getSeuil());
                     addPallier( product,upgrade );
+                    upgrade.setUnlocked(true);
                 }
             }
             else{
                 ProductType product = findProductById(world,upgrade.getIdcible());
+                world.setMoney(world.getMoney() - upgrade.getSeuil());
                 addPallier( product , upgrade );
+                upgrade.setUnlocked(true);
             }
         }else{
+            saveWorldToXml(world,username);
             return false;
         }
+        saveWorldToXml(world,username);
         return true;
     }
 
