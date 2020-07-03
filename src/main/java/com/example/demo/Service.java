@@ -15,20 +15,27 @@ import java.util.List;
 public class Service
 {
     InputStream input = getClass().getClassLoader().getResourceAsStream("world.xml");
-    public World readWorldFromXml(String username) throws JAXBException {
+
+    public World readWorldFromXml(String username) throws JAXBException, IOException {
         String filename = username + "-world.xml";
-        try {
-            File temp = new File(filename);
-            JAXBContext cont = JAXBContext.newInstance(World.class);
-            Unmarshaller un = cont.createUnmarshaller();
-            World world = (World) un.unmarshal(temp);
-            return world;
-        } catch (Exception e) {
-            JAXBContext cont = JAXBContext.newInstance(World.class);
-            Unmarshaller un = cont.createUnmarshaller();
-            World world = (World) un.unmarshal(input);
-            return world;
+        System.out.println("le  fichier rec "+filename);
+        JAXBContext jc = JAXBContext.newInstance(World.class);
+        Unmarshaller u = jc.createUnmarshaller();
+        InputStream input;
+        File file;
+        if (username != null) {
+            file = new File(username + "-world.xml");
+            if (file.exists()) {
+                input = new FileInputStream(file);
+            } else {
+                input = getClass().getClassLoader().getResourceAsStream("world.xml");
+            }
+        } else {
+            input = getClass().getClassLoader().getResourceAsStream("world.xml");
         }
+        World world = (World) u.unmarshal(input);
+        input.close();
+        return world;
     }
 
     public void saveWorldToXml(World world, String username) throws FileNotFoundException, JAXBException {
@@ -41,13 +48,13 @@ public class Service
 
     }
 
-    public World getWorld(String username) throws JAXBException, FileNotFoundException {
+    public World getWorld(String username) throws JAXBException, IOException {
         World world = readWorldFromXml(username);
-
         long currentTime = System.currentTimeMillis();
         if(currentTime == world.getLastupdate()){
             return world;
         }
+        System.out.println("Je récupére le monde avec comme argent "+world.getMoney());
         world = majScore(world);
         world.setLastupdate(System.currentTimeMillis());
         // save world of user
@@ -57,13 +64,15 @@ public class Service
 
 
     public World majScore(World world){
+
         System.out.println("majScore");
+        System.out.println(" l'argent du monde "+world.getMoney());
         List<ProductType> products = world.getProducts().getProduct();
         // calcule du temps écoulé entre la derniere mise à jour du produit et maintenant
         long tempsEcoule = System.currentTimeMillis() -  world.getLastupdate();
 
         for (ProductType product : products){
-            long test = tempsEcoule - product.getVitesse();
+            long test = tempsEcoule - product.getTimeleft();
 
             // pas assez de temps écoulé pour la production d'un produit
             if (tempsEcoule < 0 ){
@@ -71,29 +80,24 @@ public class Service
                 //maj du temps de production restant au cas ou la production du produit n'est pas terminée
                 product.setTimeleft(product.getVitesse() - (tempsEcoule % product.getVitesse()));
             }else{
-
                 int nbrProduit_Produit = 0;
                 if (product.isManagerUnlocked()){
                     System.out.println("isManagerUnlocked = true ");
                     // calcul du nombre de produit
-                    nbrProduit_Produit = (int) (tempsEcoule/product.getVitesse());
 
-                    System.out.println("Nombre de produit produit  "+nbrProduit_Produit);
+                    nbrProduit_Produit = (int) ((tempsEcoule - product.getTimeleft() +  product.getVitesse()) / product.getVitesse());
+
+                    System.out.println("Nombre de produit produit  "+nbrProduit_Produit+" avec une vetesse de "+product.getVitesse());
                     //maj du temps de production restant au cas ou la production du produit n'est pas terminée
                     product.setTimeleft(product.getVitesse() - (tempsEcoule % product.getVitesse()));
                 }else if (product.getTimeleft() > 0){
                     nbrProduit_Produit = 1;
                     product.setTimeleft(0);
                 }
-
                 // Maj de l'argent du monde
-                double argentGagner = product.getRevenu()*nbrProduit_Produit;
-
-
+                double argentGagner = product.getRevenu()*nbrProduit_Produit*product.getQuantite();
                 // Bonus pour les anges
                 argentGagner += argentGagner * (world.getActiveangels() * world.getAngelbonus() / 100 );
-
-
                 // Maj de l'argent de l'argent du joueur
                 world.setMoney(world.getMoney() + argentGagner);
                 // Maj de l'argent du score du joueur
@@ -106,14 +110,14 @@ public class Service
 
 
     // renvoie false si l’action n’a pas pu être traitée
-    public Boolean updateProduct(String username, ProductType newproduct) throws JAXBException, FileNotFoundException {
+    public Boolean updateProduct(String username, ProductType newproduct) throws JAXBException, IOException {
         // aller chercher le monde qui correspond au joueur
         World world = getWorld(username);
+        System.out.println("updateProduct comme argent avant "+world.getMoney());
         // trouver dans ce monde, le produit équivalent à celui passé
         // en paramètre
         ProductType product = findProductById(world, newproduct.getId());
         if (product == null) { return false;}
-
         // calculer la variation de quantité. Si elle est positive c'est
         // que le joueur a acheté une certaine quantité de ce produit
         // sinon c’est qu’il s’agit d’un lancement de production.
@@ -123,29 +127,26 @@ public class Service
             // achetée et mettre à jour la quantité de product
             double newPrice = product.getCout() * ((1 - Math.pow(product.getCroissance(), qtchange)) / (1 - product.getCroissance()));
             // mise à jour qte
-
             if (world.getMoney()>= newPrice){
                 product.setQuantite(newproduct.getQuantite());
                 // mise à jour argent
                 world.setMoney(world.getMoney() - newPrice);
-
+                System.out.println("Acheter un produit argent aprés "+world.getMoney());
             }else{
                 return null;
             }
-
         } else {
             // initialiser product.timeleft à product.vitesse
             // pour lancer la production
+            System.out.println("Lancer la production  du produit "+product.getName());
             product.setTimeleft(product.getVitesse());
         }
-
         List<PallierType> palliers=(List<PallierType>) product.getPalliers().getPallier();
         for (PallierType palier: palliers){
             if (palier.isUnlocked()==false && product.getQuantite()>=palier.getSeuil()){
                 addPallier(product,palier);
             }
         }
-
         // sauvegarder
         saveWorldToXml(world,username);
         return true;
@@ -153,9 +154,10 @@ public class Service
 
     // prend en paramètre le pseudo du joueur et le manager acheté.
 // renvoie false si l’action n’a pas pu être traitée
-    public Boolean updateManager(String username, PallierType newmanager) throws JAXBException, FileNotFoundException {
+    public Boolean updateManager(String username, PallierType newmanager) throws JAXBException, IOException {
         // aller chercher le monde qui correspond au joueur
         World world = getWorld(username);
+        System.out.println("Acheter manager, l'argent avant "+world.getMoney());
         // trouver dans ce monde, le manager équivalent à celui passé
         // en paramètre
         PallierType manager = findManagerByName(world, newmanager.getName());
@@ -175,7 +177,7 @@ public class Service
 
         // soustraire de l'argent du joueur le cout du manager
         world.setMoney(world.getMoney() - manager.getSeuil());
-
+        System.out.println("Acheter manager, l'argent aprés "+world.getMoney());
         // sauvegarder les changements au monde
         saveWorldToXml(world, username);
         return true;
@@ -226,7 +228,7 @@ public class Service
     //PUT /upgrade : permet au client de communiquer au serveur l’achat d’un Cash Upgrade en passant
     //cet upgrade en paramètre sous la forme d’une entité de type « pallier »
 
-    public boolean upgrade(String username, PallierType upgrade) throws JAXBException, FileNotFoundException{
+    public boolean upgrade(String username, PallierType upgrade) throws JAXBException, IOException {
         World world= getWorld(username);
         if (!upgrade.isUnlocked() && world.getMoney() >= upgrade.getSeuil()){
             if (upgrade.getIdcible() == 0 ){
@@ -245,8 +247,9 @@ public class Service
         return true;
     }
 
-    public void deleteWorld(String username) throws JAXBException, FileNotFoundException {
+    public void deleteWorld(String username) throws JAXBException, IOException {
         World world=getWorld(username);
+        System.out.println("Supprimer monde argent =>  "+world.getMoney());
         double newAnges = Math.round(150 * Math.sqrt(world.getScore()/ Math.pow(10, 15))) - world.getTotalangels();
         JAXBContext cont = JAXBContext.newInstance(World.class);
         Unmarshaller u = cont.createUnmarshaller();
@@ -260,7 +263,7 @@ public class Service
 
 
 
-    public void angelUpgrade(String username, PallierType angel) throws JAXBException, FileNotFoundException{
+    public void angelUpgrade(String username, PallierType angel) throws JAXBException, IOException {
         World world= getWorld(username);
         if(angel.getTyperatio() == TyperatioType.ANGE){
             world.setAngelbonus((int) (world.getAngelbonus() + angel.getRatio()));
@@ -268,6 +271,8 @@ public class Service
             upgrade( username, angel );
         }
         world.setActiveangels(world.getActiveangels()  -   (int) angel.getSeuil());
+
+        System.out.println("Mise à jour Angel Upgrade =>  "+world.getMoney());
     }
 
 }

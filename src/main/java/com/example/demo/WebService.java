@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBException;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 @Path("generic")
 public class WebService
@@ -23,7 +24,7 @@ public class WebService
     @GET
     @Path("world")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response getWorld(@Context HttpServletRequest request) throws JAXBException, FileNotFoundException {
+    public Response getWorld(@Context HttpServletRequest request) throws JAXBException, IOException {
         String username = request.getHeader("X-user");
         return Response.ok(service.getWorld(username)).build();
     }
@@ -41,7 +42,7 @@ public class WebService
     @PUT
     @Path("manager")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response putManager(@Context HttpServletRequest request, PallierType newmanager) throws JAXBException, FileNotFoundException {
+    public Response putManager(@Context HttpServletRequest request, PallierType newmanager) throws JAXBException, IOException {
         String username = request.getHeader("X-user");
         service.updateManager(username, newmanager);
         return Response.ok(service.getWorld(username)).build();
@@ -50,7 +51,7 @@ public class WebService
     @PUT
     @Path("upgrade")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response putUpgrade(@Context HttpServletRequest request, PallierType upgrade) throws JAXBException, FileNotFoundException {
+    public Response putUpgrade(@Context HttpServletRequest request, PallierType upgrade) throws JAXBException, IOException {
         String username = request.getHeader("X-user");
         service.upgrade(username, upgrade);
         return Response.ok(service.getWorld(username)).build();
@@ -59,7 +60,7 @@ public class WebService
     @DELETE
     @Path("world")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response deleteWorld(@Context HttpServletRequest request) throws JAXBException, FileNotFoundException {
+    public Response deleteWorld(@Context HttpServletRequest request) throws JAXBException, IOException {
         String username = request.getHeader("X-user");
         service.deleteWorld(username);
         return Response.ok(service.getWorld(username)).build();
@@ -68,7 +69,7 @@ public class WebService
     @PUT
     @Path("angelUpgrade")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response putAngelUpgrade(@Context HttpServletRequest request, PallierType angelUpgrade) throws JAXBException, FileNotFoundException {
+    public Response putAngelUpgrade(@Context HttpServletRequest request, PallierType angelUpgrade) throws JAXBException, IOException {
         String username = request.getHeader("X-user");
         service.angelUpgrade(username, angelUpgrade);
         return Response.ok(service.getWorld(username)).build();
